@@ -142,5 +142,11 @@ var Grid = /** @class */ (function () {
             this.gridModel[row].pop();
         this.redim(this.gridModel);
     };
+    Grid.prototype.randomize = function () {
+        for (var row = 0; row < this.gridModel.length; row++)
+            for (var col = 0; col < this.gridModel.length; col++)
+                this.gridModel[row][col] = Math.floor(Math.random() * 2);
+        this.redim(this.gridModel);
+    };
     return Grid;
 }());

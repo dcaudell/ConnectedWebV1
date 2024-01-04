@@ -8,10 +8,13 @@ pg_ctl -D [project_root]/postgres -l logfile start
 ./bin/bundle exec rake assets:precompile
 
 # If still tailwind problems...
-./bin/rails tailwindcss:watch
-./bin/rails assets:precompile
-./bin/rails tailwindcss:build
 
+./bin/rails tailwindcss:build
+./bin/rails assets:precompile
+./bin/rails tailwindcss:watch
 
 # To create grid rails scaffold
 ./bin/rails g scaffold xgrid gridmodel:text num_rows:integer num_cols:integer is_connected:boolean created_on:datetime remarks:text
+
+# To update database
+./bin/rails db:migrate

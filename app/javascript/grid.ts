@@ -17,7 +17,6 @@ class Grid {
         if (el == null)
             throw "Grid(): null el."
 
-
         this.el = el;
         this.redim(initModel);
     }
@@ -188,6 +187,14 @@ class Grid {
             return;
         for (let row = 0; row < this.gridModel.length; row++)
             this.gridModel[row].pop();
+        this.redim(this.gridModel);
+    }
+
+    public randomize() {
+        for (let row = 0; row < this.gridModel.length; row++)
+            for (let col = 0; col < this.gridModel.length; col++)
+                this.gridModel[row][col] = Math.floor(Math.random() * 2);
+
         this.redim(this.gridModel);
     }
 }
