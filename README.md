@@ -50,7 +50,7 @@
 * Issues: 
   - Grids are editable outside the form page, but the display values are not bound to the grid.
   - Some DOM hanky-panky causes JS errors during page navigation that do not occur on a clean page-load.
-  - Sometimes multiple valid paths are indicated through connected grids. 
+  - Sometimes suboptimal paths are indicated, making it look like multiple paths have been traced. 
   - There's some asset preload warnings occasionally.
   - tailwindcss seems to have some problems during build.
   - Inconsistent capitalization on 'Create Xgrid' button.
