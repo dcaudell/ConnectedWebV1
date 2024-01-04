@@ -1,0 +1,22 @@
+2024-01-03 13:22:00.601 CST [47786] LOG:  starting PostgreSQL 14.10 (Homebrew) on aarch64-apple-darwin22.6.0, compiled by Apple clang version 14.0.3 (clang-1403.0.22.14.1), 64-bit
+2024-01-03 13:22:00.601 CST [47786] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-01-03 13:22:00.601 CST [47786] LOG:  listening on IPv6 address "::1", port 5432
+2024-01-03 13:22:00.602 CST [47786] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-01-03 13:22:00.603 CST [47787] LOG:  database system was shut down at 2024-01-03 13:21:06 CST
+2024-01-03 13:22:00.606 CST [47786] LOG:  database system is ready to accept connections
+2024-01-03 13:22:16.470 CST [47809] FATAL:  role "postgres" does not exist
+2024-01-03 13:22:27.492 CST [47828] FATAL:  role "postgres" does not exist
+2024-01-03 13:22:35.992 CST [47838] FATAL:  role "postgres" does not exist
+2024-01-03 13:24:22.410 CST [47959] FATAL:  database "dcaudell" does not exist
+2024-01-03 13:25:21.813 CST [47786] LOG:  received fast shutdown request
+2024-01-03 13:25:21.813 CST [47786] LOG:  aborting any active transactions
+2024-01-03 13:25:21.815 CST [47786] LOG:  background worker "logical replication launcher" (PID 47793) exited with exit code 1
+2024-01-03 13:25:21.815 CST [47788] LOG:  shutting down
+2024-01-03 13:25:21.822 CST [47786] LOG:  database system is shut down
+2024-01-03 13:33:20.268 CST [48879] LOG:  starting PostgreSQL 14.10 (Homebrew) on aarch64-apple-darwin22.6.0, compiled by Apple clang version 14.0.3 (clang-1403.0.22.14.1), 64-bit
+2024-01-03 13:33:20.269 CST [48879] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-01-03 13:33:20.269 CST [48879] LOG:  listening on IPv6 address "::1", port 5432
+2024-01-03 13:33:20.269 CST [48879] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-01-03 13:33:20.273 CST [48880] LOG:  database system was shut down at 2024-01-03 13:25:21 CST
+2024-01-03 13:33:20.275 CST [48879] LOG:  database system is ready to accept connections
+2024-01-03 13:34:43.632 CST [48988] FATAL:  database "connected_web_v1_development" does not exist

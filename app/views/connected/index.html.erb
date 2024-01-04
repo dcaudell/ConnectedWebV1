@@ -1,0 +1,33 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "grid.js" %>
+<% end %>
+
+<h1>Connected Application coming soon!</h1>
+
+<div class='some-page-wrapper' id='myGrid'>
+<% @grid.each_with_index do |rVal, row|  %>
+  <div class="row">
+    <% rVal.each_with_index do |cVal, col| %>
+      <div class="column">
+        <% if cVal == 1 %>
+          <div class='green-column' id='grid-<%=row %>-<%=col %>' onclick='document.getElementById("myGrid")._grid.gridClick(<%=row %>, <%=col %>, this)'>
+            <%= row %>, <%= col %> = <%= cVal %>
+          </div>
+        <% else %>
+          <div class='red-column' id='grid-<%=row %>-<%=col %>' onclick='document.getElementById("myGrid")._grid.gridClick(<%=row %>, <%=col %>, this)'>
+            <%= row %>, <%= col %> = <%= cVal %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+</div>
+
+<script type="text/javascript" >
+    document.addEventListener("turbo:load", function () {
+        let el = document.getElementById('myGrid');
+        el._grid = gridInit(<%= @grid %>, el);
+    });
+</script>
+

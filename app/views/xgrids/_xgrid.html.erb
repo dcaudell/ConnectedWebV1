@@ -1,0 +1,49 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "grid.js" %>
+<% end %>
+
+<div id="<%= dom_id xgrid %>">
+  <div class="my-5">
+    <div class='some-page-wrapper' id='xgrid-<%= xgrid.id %>'>
+    </div>
+    <script type="text/javascript" >
+        document.addEventListener("turbo:load", function () {
+            let el = document.getElementById('xgrid-<%= xgrid.id %>');
+            el._grid = gridInit(<%= xgrid.gridmodel %>, el);
+        });
+    </script>
+    <strong class="block font-medium mb-1">Gridmodel:</strong>
+    <%= xgrid.gridmodel %>
+  </div>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Num rows:</strong>
+    <%= xgrid.num_rows %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Num cols:</strong>
+    <%= xgrid.num_cols %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Is connected:</strong>
+    <%= xgrid.is_connected %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Created on:</strong>
+    <%= xgrid.created_at %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Remarks:</strong>
+    <%= xgrid.remarks %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this xgrid", xgrid, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this xgrid", edit_xgrid_path(xgrid), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

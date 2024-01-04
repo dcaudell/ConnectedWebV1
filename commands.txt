@@ -1,0 +1,17 @@
+# Tutorial URL
+# https://www.youtube.com/watch?v=lyHdVajVTGA&t=52s
+
+# Start local non-dockerized postgres daemon
+pg_ctl -D [project_root]/postgres -l logfile start
+
+# If tailwindcss has issues
+./bin/bundle exec rake assets:precompile
+
+# If still tailwind problems...
+./bin/rails tailwindcss:watch
+./bin/rails assets:precompile
+./bin/rails tailwindcss:build
+
+
+# To create grid rails scaffold
+./bin/rails g scaffold xgrid gridmodel:text num_rows:integer num_cols:integer is_connected:boolean created_on:datetime remarks:text

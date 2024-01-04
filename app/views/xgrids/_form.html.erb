@@ -1,0 +1,41 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "grid.js" %>
+<% end %>
+
+<%= form_with(model: xgrid, class: "contents") do |form| %>
+  <% if xgrid.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(xgrid.errors.count, "error") %> prohibited this xgrid from being saved:</h2>
+
+      <ul>
+        <% xgrid.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <div class='some-page-wrapper' id='<%= @grid_uuid %>'>
+    </div>
+    <%= form.hidden_field :gridmodel %>
+    <%= form.hidden_field :is_connected %>
+    <%= form.hidden_field :num_rows %>
+    <%= form.hidden_field :num_cols %>
+    <script type="text/javascript" >
+        document.addEventListener("turbo:load", function () {
+            let el = document.getElementById('<%= @grid_uuid %>');
+            el._grid = gridInit(<%= xgrid.gridmodel %>, el);
+        });
+    </script>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :remarks %>
+    <%= form.text_area :remarks, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

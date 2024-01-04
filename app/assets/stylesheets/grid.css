@@ -1,0 +1,42 @@
+/* https://dev.to/drews256/ridiculously-easy-row-and-column-layouts-with-flexbox-1k01 */
+
+.some-page-wrapper {
+    margin: 15px;
+    background-color: gray;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    margin:8px;
+}
+
+.blue-column {
+    background-color: blue;
+    height: 100px;
+}
+
+.green-column {
+    background-color: green;
+    height: 100px;
+}
+
+.orange-column {
+    background-color: orange;
+    height: 100px;
+}
+
+.red-column {
+    background-color: red;
+    height: 100px;
+}
+

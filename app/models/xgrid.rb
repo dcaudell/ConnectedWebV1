@@ -1,0 +1,2 @@
+class Xgrid < ApplicationRecord
+end
