@@ -17,8 +17,15 @@ class Grid {
         if (el == null)
             throw "Grid(): null el."
 
-        this.gridModel = initModel;
+
         this.el = el;
+        this.redim(initModel);
+    }
+
+    private redim(
+        gridModel:number[][]
+    ){
+        this.gridModel = gridModel;
         this.buildGrid();
         let conductive = this.isConductive(this.gridModel);
         this.updateForm(conductive);
@@ -153,5 +160,34 @@ class Grid {
         let formNumCols = <HTMLInputElement> document.getElementById('xgrid_num_cols');
         if (formNumCols != null)
             formNumCols.value = this.gridModel[0].length + '';
+    }
+
+    public addRow() {
+        let newRow:number[] = [];
+        for (let i = 0; i < this.gridModel[0].length; i++)
+            newRow.push(1);
+        this.gridModel.push(newRow);
+        this.redim(this.gridModel);
+    }
+
+    public delRow() {
+        if (this.gridModel.length < 2)
+            return;
+        this.gridModel.pop();
+        this.redim(this.gridModel);
+    }
+
+    public addCol() {
+        for (let row = 0; row < this.gridModel.length; row++)
+            this.gridModel[row].push(1);
+        this.redim(this.gridModel);
+    }
+
+    public delCol() {
+        if (this.gridModel[0].length < 2)
+            return;
+        for (let row = 0; row < this.gridModel.length; row++)
+            this.gridModel[row].pop();
+        this.redim(this.gridModel);
     }
 }

@@ -8,12 +8,15 @@ var Grid = /** @class */ (function () {
             throw "Grid(): null initModel.";
         if (el == null)
             throw "Grid(): null el.";
-        this.gridModel = initModel;
         this.el = el;
+        this.redim(initModel);
+    }
+    Grid.prototype.redim = function (gridModel) {
+        this.gridModel = gridModel;
         this.buildGrid();
         var conductive = this.isConductive(this.gridModel);
         this.updateForm(conductive);
-    }
+    };
     Grid.prototype.buildGrid = function () {
         var _this = this;
         while (this.el.firstChild) {
@@ -113,6 +116,31 @@ var Grid = /** @class */ (function () {
         var formNumCols = document.getElementById('xgrid_num_cols');
         if (formNumCols != null)
             formNumCols.value = this.gridModel[0].length + '';
+    };
+    Grid.prototype.addRow = function () {
+        var newRow = [];
+        for (var i = 0; i < this.gridModel[0].length; i++)
+            newRow.push(1);
+        this.gridModel.push(newRow);
+        this.redim(this.gridModel);
+    };
+    Grid.prototype.delRow = function () {
+        if (this.gridModel.length < 2)
+            return;
+        this.gridModel.pop();
+        this.redim(this.gridModel);
+    };
+    Grid.prototype.addCol = function () {
+        for (var row = 0; row < this.gridModel.length; row++)
+            this.gridModel[row].push(1);
+        this.redim(this.gridModel);
+    };
+    Grid.prototype.delCol = function () {
+        if (this.gridModel[0].length < 2)
+            return;
+        for (var row = 0; row < this.gridModel.length; row++)
+            this.gridModel[row].pop();
+        this.redim(this.gridModel);
     };
     return Grid;
 }());

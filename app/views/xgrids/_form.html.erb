@@ -18,6 +18,14 @@
   <div class="my-5">
     <div class='some-page-wrapper' id='<%= @grid_uuid %>'>
     </div>
+    <span>
+      Rows:
+      <a class="rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" onclick="document.getElementById('<%= @grid_uuid %>')._grid.addRow()">+</a>
+      <a class="rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" onclick="document.getElementById('<%= @grid_uuid %>')._grid.delRow()">-</a>
+      Columns:
+      <a class="rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" onclick="document.getElementById('<%= @grid_uuid %>')._grid.addCol()">+</a>
+      <a class="rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" onclick="document.getElementById('<%= @grid_uuid %>')._grid.delCol()">-</a>
+    </span>
     <%= form.hidden_field :gridmodel %>
     <%= form.hidden_field :is_connected %>
     <%= form.hidden_field :num_rows %>
